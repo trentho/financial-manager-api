@@ -3,6 +3,7 @@ package com.trent.personalfinancemanagerapi.controller;
 import com.trent.personalfinancemanagerapi.dto.UserRequestDto;
 import com.trent.personalfinancemanagerapi.dto.UserResponseDto;
 import com.trent.personalfinancemanagerapi.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,7 +16,7 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponseDto createUser(@RequestBody UserRequestDto user){
+    public UserResponseDto createUser(@Valid @RequestBody UserRequestDto user){
         return service.createUser(user);
     }
 
